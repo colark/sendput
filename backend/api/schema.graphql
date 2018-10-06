@@ -1,0 +1,14 @@
+scalar Page
+
+type Incident {
+  name: String!
+}
+
+type DashboardPage {
+  incidents: [Incident!]
+}
+
+type Query {
+  router(path: String): Page!
+  dashboardPage: DashboardPage!
+}

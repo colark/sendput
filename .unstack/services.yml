@@ -1,0 +1,13 @@
+context:
+  handler:
+    name: env-context
+backend:
+  api:
+    handler:
+      name: graphql-api
+platforms:
+  web:
+    depends_on:
+      - backend.api
+    handler:
+      name: express-ssr
