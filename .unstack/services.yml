@@ -2,6 +2,9 @@ context:
   handler:
     name: env-context
 backend:
+  manage:
+    handler:
+      name: express
   api:
     handler:
       name: graphql-api
@@ -9,5 +12,6 @@ platforms:
   web:
     depends_on:
       - backend.api
+      - backend.manage
     handler:
       name: express-ssr

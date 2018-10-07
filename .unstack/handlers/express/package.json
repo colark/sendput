@@ -1,0 +1,26 @@
+{
+  "name": "unstack-express",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  },
+  "peerDependencies": {
+    "express": "^4.16.3"
+  },
+  "dependencies": {
+    "body-parser": "*"
+  }
+}

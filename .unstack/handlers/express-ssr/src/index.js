@@ -58,7 +58,7 @@ const wrapComponent = (component, context) => {
 
       try {
         const babelFile = await exec(
-          'parcel build entry.unstack.js component/pages/dashboard.js',
+          'parcel build entry.unstack.js',
           { cwd: appFolder, maxBuffer: 1024 * 500 }
         );
         console.log(babelFile.stdout)
