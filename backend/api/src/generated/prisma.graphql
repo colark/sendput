@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Sat Oct 06 2018 23:35:42 GMT-0700 (PDT)
+# timestamp: Sun Oct 07 2018 01:09:38 GMT-0700 (Pacific Daylight Time)
 
 type AggregateUser {
   count: Int!
