@@ -14,6 +14,8 @@ export default (app, state, styleTags) => `
         <!-- styled-components -->
         ${styleTags}
 
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
         <script>
           window.__isNew__ = true;
           window.__APOLLO_STATE__=${JSON.stringify(state).replace(/</g, '\\u003c')};

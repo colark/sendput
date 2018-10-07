@@ -1,17 +1,26 @@
 context:
+  type: context
   handler:
     name: env-context
 backend:
+  prisma:
+    handler:
+      name: prisma
   manage:
     handler:
       name: express
+    depends_on:
+      - backend.prisma
   api:
     handler:
       name: graphql-api
+    depends_on:
+      - backend.prisma
 platforms:
   web:
     depends_on:
       - backend.api
       - backend.manage
+      - backend.prisma
     handler:
       name: express-ssr

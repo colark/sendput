@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "prisma",
+      "host": {
+        "sourcePath": "/var/app/current/prisma"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "prisma",
+      "image": "prismagraphql/prisma:1.16",
+      "memory": 512,
+      "environment": [
+        {
+          "name": "PRISMA_CONFIG",
+          "value": "port: 4466 \nmanagementApiSecret: {{secret}} \ndatabases: \n  default: \n    connector: postgres \n    host: {{dbHost}} \n    port: 5432 \n    user: {{dbUser}} \n    password: {{dbPassword}} \n    migrations: true \n    database: root"
+        }
+      ],
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 4466
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "prisma",
+          "containerPath": "/usr/src/app"
+        }
+      ]
+    }
+  ]
+}

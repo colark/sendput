@@ -14,7 +14,7 @@ const wrapComponent = ({ withServer }, context) => {
       const appFolder = `./.unstack/tmp/artifacts/start/${serviceName}`;
 
       try {
-        server(withServer);
+        server(withServer, { context });
       } catch (e) {
         console.log(e)
       }
