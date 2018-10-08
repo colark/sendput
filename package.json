@@ -17,13 +17,16 @@
   },
   "homepage": "https://github.com/colark/platform#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
     "js-yaml": "^3.12.0",
     "nodemon": "^1.18.4",
     "unstack": "^0.0.6",
     "unstack-env-context": "^0.0.1"
   },
   "devDependencies": {
-    "@bloomprotocol/share-kit": "*",
+    "@bloomprotocol/share-kit": "1.1.1",
     "apollo-cache-inmemory": "^1.2.10",
     "apollo-client": "^2.4.2",
     "apollo-link-http": "^1.5.5",

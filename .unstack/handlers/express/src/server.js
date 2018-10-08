@@ -5,7 +5,7 @@ export default (withServer, { context }) => {
 
   withServer(app, { context });
 
-  app.listen(8000, function (err){
+  app.listen(8001, function (err){
     console.log("Calling express server's callback function.");
     console.log(err);
   })

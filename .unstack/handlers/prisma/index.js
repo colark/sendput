@@ -49,30 +49,30 @@ const wrapComponent = (_, context) => {
 
       yaml.sync(`${artifactsFolder}/.graphqlconfig.yml`, schemaConfig);
 
-      const schemaBuildCommand = `npm install -g graphql-cli && graphql get-schema`;
-      const schemaBuildResult = await exec(schemaBuildCommand, { cwd: artifactsFolder, maxBuffer: 1024 * 500 });
-      console.log(schemaBuildResult.stdout);
-      console.log(schemaBuildResult.stderr);
+      // const schemaBuildCommand = `npm install -g graphql-cli && graphql get-schema`;
+      // const schemaBuildResult = await exec(schemaBuildCommand, { cwd: artifactsFolder, maxBuffer: 1024 * 500 });
+      // console.log(schemaBuildResult.stdout);
+      // console.log(schemaBuildResult.stderr);
 
       //copy files to tmp docker app folder
       const copyDockerFileCommand = `cp -rf ${handlerLocation}/local-docker-compose.yml ${appFolder}/docker-compose.yml`;
       const copyDockerFile = await exec(copyDockerFileCommand, { cwd: process.cwd() });
 
 
-      const startCommand = `docker-compose up -d --force-recreate`;
-      const startResult = await exec(startCommand, { cwd: appFolder, maxBuffer: 1024 * 500 });
-      console.log(startResult.stdout);
-      console.log(startResult.stderr);
-
-      const prismaDeployCommand = `npm config set unsafe-perm true; sudo npm install -g prisma; sleep 10; prisma deploy -f;`;
-      const prismaDeployResult = await exec(prismaDeployCommand, {
-        cwd: artifactsFolder,
-        maxBuffer: 1024 * 500,
-        env: { ...process.env, PRISMA_MANAGEMENT_API_SECRET: 'mysecret123' }
-      });
-
-      console.log(prismaDeployResult.stdout);
-      console.log(prismaDeployResult.stderr);
+      // const startCommand = `docker-compose up -d --force-recreate`;
+      // const startResult = await exec(startCommand, { cwd: appFolder, maxBuffer: 1024 * 500 });
+      // console.log(startResult.stdout);
+      // console.log(startResult.stderr);
+      //
+      // const prismaDeployCommand = `npm config set unsafe-perm true; sudo npm install -g prisma; sleep 10; prisma deploy -f;`;
+      // const prismaDeployResult = await exec(prismaDeployCommand, {
+      //   cwd: artifactsFolder,
+      //   maxBuffer: 1024 * 500,
+      //   env: { ...process.env, PRISMA_MANAGEMENT_API_SECRET: 'mysecret123' }
+      // });
+      //
+      // console.log(prismaDeployResult.stdout);
+      // console.log(prismaDeployResult.stderr);
 
       const tokenCommand = `prisma token`;
       const tokenResult = await exec(tokenCommand, {
